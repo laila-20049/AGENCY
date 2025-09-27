@@ -263,26 +263,6 @@ function showToast(title, description, type = 'info') {
     }, 5000);
 }
 
-// Gestion des erreurs globales
-window.addEventListener('error', function(e) {
-    // Affiche uniquement les erreurs critiques (optionnel)
-    if (e.error && e.error instanceof Error) {
-        console.error('Erreur JavaScript:', e.error);
-        showToast('Erreur', 'Une erreur inattendue s\'est produite', 'error');
-    }
-    // Sinon, ignore les erreurs mineures ou liées au chargement de ressources
-});
-
-// Gestion des promesses rejetées
-window.addEventListener('unhandledrejection', function(e) {
-    // Affiche uniquement si la raison est une vraie erreur
-    if (e.reason && e.reason instanceof Error) {
-        console.error('Promesse rejetée:', e.reason);
-        showToast('Erreur', 'Une erreur inattendue s\'est produite', 'error');
-    }
-    // Sinon, ignore les rejets mineurs
-});
-
 // Optimisation des performances - Intersection Observer pour les animations
 if ('IntersectionObserver' in window) {
     const observerOptions = {

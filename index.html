@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Influence Agency - Management d'Influenceurs Premium</title>
+    <meta name="description" content="Agence de management premium pour influenceurs d'exception. Transformez votre influence en empire digital.">
+    <meta name="author" content="Influence Agency">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Influence Agency - Management d'Influenceurs Premium">
+    <meta property="og:description" content="L'agence qui transforme les créateurs en légendes digitales. Management premium pour influenceurs d'exception.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/og-image.jpg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Influence Agency - Management Premium">
+    <meta name="twitter:description" content="Transformez votre influence en empire digital avec notre expertise premium.">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.462.0/lucide.min.css">
+</head>
+<body>
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-bg">
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="gradient-text">Influence</span>
+                    <span class="gradient-text">Redéfinie</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    L'agence qui transforme les créateurs en <span class="accent-text">légendes digitales</span>. 
+                    Management premium pour influenceurs d'exception.
+                </p>
+                
+                <div class="hero-cta">
+                    <button class="btn btn-primary" onclick="scrollToContact()">
+                        Rejoindre l'élite
+                    </button>
+                    <button class="btn btn-outline" onclick="scrollToRoster()">
+                        Découvrir nos talents
+                    </button>
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number gradient-text">50M+</div>
+                        <div class="stat-label">Followers combinés</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number accent-text">200+</div>
+                        <div class="stat-label">Campagnes réussies</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number gradient-text">98%</div>
+                        <div class="stat-label">Satisfaction clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="gradient-text">Services d'Excellence</span>
+                </h2>
+                <p class="section-subtitle">
+                    Un écosystème complet pour propulser votre influence vers de nouveaux sommets
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="users"></i>
+                    </div>
+                    <h3 class="service-title">Management Premium</h3>
+                    <p class="service-description">
+                        Gestion complète de carrière, négociation de contrats et développement de personal branding pour nos talents d'exception.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="trending-up"></i>
+                    </div>
+                    <h3 class="service-title">Stratégie de Croissance</h3>
+                    <p class="service-description">
+                        Analyse de données avancée, optimisation des contenus et développement d'audience pour maximiser l'impact et l'engagement.
+                    </p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i data-lucide="star"></i>
+                    </div>
+                    <h3 class="service-title">Partenariats Exclusifs</h3>
+                    <p class="service-description">
+                        Accès privilégié aux plus grandes marques mondiales et négociation de collaborations premium avec des conditions exceptionnelles.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roster Section -->
+    <section id="roster" class="roster-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="gradient-text">Nos Talents</span>
+                </h2>
+                <p class="section-subtitle">
+                    Une sélection exclusive d'influenceurs d'exception qui redéfinissent les codes de leur industrie
+                </p>
+            </div>
+            
+            <div class="roster-grid" id="roster-grid">
+                <!-- Les cartes seront générées par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="gradient-text">Rejoignez l'Élite</span>
+                </h2>
+                <p class="section-subtitle">
+                    Prêt à transformer votre influence en empire digital ? Parlons de votre avenir.
+                </p>
+            </div>
+            
+            <div class="contact-card">
+                <div class="contact-header">
+                    <i data-lucide="message-circle"></i>
+                    <h3>Contactez-nous</h3>
+                </div>
+                
+                <form id="contact-form" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nom complet *</label>
+                            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Parlez-nous de votre projet, vos objectifs, votre niche..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <i data-lucide="send"></i>
+                        Envoyer via WhatsApp
+                    </button>
+                </form>
+                
+                <p class="contact-note">
+                    En envoyant ce formulaire, vous serez redirigé vers WhatsApp pour finaliser votre demande.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="gradient-text">Influence Agency</h3>
+                    <p>L'excellence en management d'influenceurs</p>
+                </div>
+                <div class="footer-copy">
+                    <p>© 2025 Influence Agency. Tous droits réservés.</p>
+                    <p>Créé avec passion pour l'excellence digitale</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Influencer -->
+    <div id="influencer-modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="influencer-info">
+                    <div class="influencer-avatar" id="modal-avatar"></div>
+                    <div class="influencer-details">
+                        <h2 id="modal-title" class="influencer-name"></h2>
+                        <p id="modal-handle" class="influencer-handle"></p>
+                        <span id="modal-niche" class="influencer-niche"></span>
+                    </div>
+                </div>
+                <button class="modal-close" onclick="closeModal()" aria-label="Fermer">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="modal-section">
+                    <h3>Bio</h3>
+                    <p id="modal-bio"></p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Plateformes</h3>
+                    <div id="modal-platforms" class="platforms-grid"></div>
+                </div>
+                
+                <div class="modal-section">
+                    <h3>Exemples de performances</h3>
+                    <div id="modal-posts" class="posts-grid"></div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="requestContact()">
+                        <i data-lucide="external-link"></i>
+                        Demander un contact
+                    </button>
+                    <button class="btn btn-outline" onclick="closeModal()">
+                        Fermer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="roster.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>

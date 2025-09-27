@@ -1,6 +1,6 @@
 // Variables globales
 let currentInfluencer = null;
-const AGENCY_WHATSAPP = "33123456789"; // Remplacez par le vrai numéro
+const AGENCY_WHATSAPP = "+212657501386"; // Remplacez par le vrai numéro
 
 // Initialisation au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
@@ -41,7 +41,7 @@ function createInfluencerCard(influencer) {
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
     card.setAttribute('aria-label', `Voir détails de ${influencer.name}`);
-    
+
     // Gestion du clavier
     card.addEventListener('keydown', function(e) {
         if (e.key === 'Enter' || e.key === ' ') {
@@ -49,7 +49,7 @@ function createInfluencerCard(influencer) {
             openModal(influencer);
         }
     });
-    
+
     card.innerHTML = `
         <div class="influencer-avatar">${getInitials(influencer.name)}</div>
         <h3 class="influencer-name">${influencer.name}</h3>
@@ -57,11 +57,17 @@ function createInfluencerCard(influencer) {
         <span class="influencer-niche">${influencer.niche}</span>
         <div class="influencer-followers">${influencer.followers}</div>
         <div class="followers-label">followers</div>
-        <button class="btn btn-outline" onclick="event.stopPropagation(); openModal(arguments[0])" style="margin-top: 1rem;">
+        <button class="btn btn-outline" type="button" style="margin-top: 1rem;">
             Voir détails
         </button>
     `;
-    
+
+    // Corrige le bouton "Voir détails" pour ouvrir la modal sans erreur
+    card.querySelector('button').addEventListener('click', function(event) {
+        event.stopPropagation();
+        openModal(influencer);
+    });
+
     return card;
 }
 
@@ -259,14 +265,22 @@ function showToast(title, description, type = 'info') {
 
 // Gestion des erreurs globales
 window.addEventListener('error', function(e) {
-    console.error('Erreur JavaScript:', e.error);
-    showToast('Erreur', 'Une erreur inattendue s\'est produite', 'error');
+    // Affiche uniquement les erreurs critiques (optionnel)
+    if (e.error && e.error instanceof Error) {
+        console.error('Erreur JavaScript:', e.error);
+        showToast('Erreur', 'Une erreur inattendue s\'est produite', 'error');
+    }
+    // Sinon, ignore les erreurs mineures ou liées au chargement de ressources
 });
 
 // Gestion des promesses rejetées
 window.addEventListener('unhandledrejection', function(e) {
-    console.error('Promesse rejetée:', e.reason);
-    showToast('Erreur', 'Une erreur inattendue s\'est produite', 'error');
+    // Affiche uniquement si la raison est une vraie erreur
+    if (e.reason && e.reason instanceof Error) {
+        console.error('Promesse rejetée:', e.reason);
+        showToast('Erreur', 'Une erreur inattendue s\'est produite', 'error');
+    }
+    // Sinon, ignore les rejets mineurs
 });
 
 // Optimisation des performances - Intersection Observer pour les animations

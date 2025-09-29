@@ -6,40 +6,41 @@
 }
 
 :root {
-    /* Couleurs principales */
-    --primary-hue: 269;
-    --primary-sat: 89%;
-    --primary-light: 64%;
-    --accent-hue: 195;
-    --accent-sat: 94%;
-    --accent-light: 65%;
+    /* Couleurs principales - Noir et Doré */
+    --primary-hue: 45;
+    --primary-sat: 100%;
+    --primary-light: 50%;
+    --accent-hue: 45;
+    --accent-sat: 85%;
+    --accent-light: 70%;
     
-    /* Design System */
-    --background: hsl(240, 10%, 3.9%);
-    --foreground: hsl(0, 0%, 98%);
-    --card: hsl(240, 10%, 6%);
-    --card-foreground: hsl(0, 0%, 98%);
+    /* Design System - Thème Noir et Doré */
+    --background: hsl(0, 0%, 0%);
+    --foreground: hsl(0, 0%, 100%);
+    --card: hsl(0, 0%, 8%);
+    --card-foreground: hsl(0, 0%, 100%);
     --primary: hsl(var(--primary-hue), var(--primary-sat), var(--primary-light));
-    --primary-foreground: hsl(0, 0%, 98%);
-    --secondary: hsl(240, 5%, 12%);
-    --secondary-foreground: hsl(0, 0%, 98%);
-    --muted: hsl(240, 5%, 10%);
-    --muted-foreground: hsl(240, 5%, 64.9%);
+    --primary-foreground: hsl(0, 0%, 0%);
+    --secondary: hsl(0, 0%, 15%);
+    --secondary-foreground: hsl(0, 0%, 100%);
+    --muted: hsl(0, 0%, 12%);
+    --muted-foreground: hsl(0, 0%, 70%);
     --accent: hsl(var(--accent-hue), var(--accent-sat), var(--accent-light));
-    --accent-foreground: hsl(240, 10%, 3.9%);
-    --border: hsl(240, 6%, 20%);
-    --input: hsl(240, 6%, 15%);
+    --accent-foreground: hsl(0, 0%, 0%);
+    --border: hsl(0, 0%, 25%);
+    --input: hsl(0, 0%, 18%);
     --ring: var(--primary);
-    --elevated: hsl(240, 8%, 8%);
+    --elevated: hsl(0, 0%, 10%);
+    --destructive: hsl(0, 84%, 60%);
     
-    /* Gradients */
+    /* Gradients - Noir et Doré */
     --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
     --gradient-subtle: linear-gradient(180deg, var(--card) 0%, var(--background) 100%);
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.1) 0%, hsl(var(--accent-hue), var(--accent-sat), var(--accent-light), 0.1) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.15) 0%, hsl(var(--accent-hue), var(--accent-sat), var(--accent-light), 0.1) 100%);
     
-    /* Shadows */
-    --shadow-glow: 0 0 30px hsl(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.3);
-    --shadow-subtle: 0 4px 20px hsl(240, 10%, 3.9%, 0.4);
+    /* Shadows - Noir et Doré */
+    --shadow-glow: 0 0 30px hsl(var(--primary-hue), var(--primary-sat), var(--primary-light), 0.4);
+    --shadow-subtle: 0 4px 20px hsl(0, 0%, 0%, 0.6);
     
     /* Transitions */
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -294,6 +295,8 @@ section {
     border-radius: 50%;
     margin-bottom: 1.5rem;
     transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.2);
 }
 
 .service-card:hover .service-icon {
@@ -304,6 +307,35 @@ section {
     width: 2rem;
     height: 2rem;
     color: var(--primary-foreground);
+    stroke-width: 2;
+}
+
+/* Enhanced service icon styling */
+.service-icon {
+    position: relative;
+}
+
+.service-icon i {
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Main Symbol in Service Icon */
+.main-symbol {
+    font-size: 2rem;
+    color: var(--primary-foreground);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    animation: pulse-symbol 2s ease-in-out infinite;
+}
+
+@keyframes pulse-symbol {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
 
 .service-title {
@@ -315,6 +347,61 @@ section {
 .service-description {
     color: var(--muted-foreground);
     line-height: 1.6;
+}
+
+/* Service Symbols */
+.service-symbols {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--secondary);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    font-size: 1rem;
+    opacity: 0.8;
+    transition: var(--transition);
+    filter: grayscale(0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.service-card:hover .symbol {
+    opacity: 1;
+    transform: scale(1.1);
+    filter: grayscale(0);
+    background: var(--elevated);
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+.symbol:nth-child(1) {
+    animation: float 3s ease-in-out infinite;
+}
+
+.symbol:nth-child(2) {
+    animation: float 3s ease-in-out infinite 1s;
+}
+
+.symbol:nth-child(3) {
+    animation: float 3s ease-in-out infinite 2s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 /* Roster Section */
@@ -354,6 +441,27 @@ section {
     color: var(--primary-foreground);
     margin: 0 auto 1rem;
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.avatar-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-foreground);
 }
 
 .influencer-card:hover .influencer-avatar {
@@ -574,6 +682,26 @@ section {
     height: 4rem;
     font-size: 1.25rem;
     margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.modal-header .avatar-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.modal-header .avatar-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-foreground);
 }
 
 .influencer-details h2 {
@@ -728,7 +856,7 @@ section {
 }
 
 .toast.success {
-    border-color: hsl(142, 76%, 36%);
+    border-color: var(--primary);
 }
 
 .toast.error {

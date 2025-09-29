@@ -51,7 +51,10 @@ function createInfluencerCard(influencer) {
     });
 
     card.innerHTML = `
-        <div class="influencer-avatar">${getInitials(influencer.name)}</div>
+        <div class="influencer-avatar">
+            <img src="${influencer.image}" alt="${influencer.name}" class="avatar-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="avatar-fallback" style="display: none;">${getInitials(influencer.name)}</div>
+        </div>
         <h3 class="influencer-name">${influencer.name}</h3>
         <p class="influencer-handle">${influencer.handle}</p>
         <span class="influencer-niche">${influencer.niche}</span>
@@ -108,7 +111,11 @@ function openModal(influencer) {
     const modal = document.getElementById('influencer-modal');
     
     // Remplir les données
-    document.getElementById('modal-avatar').textContent = getInitials(influencer.name);
+    const modalAvatar = document.getElementById('modal-avatar');
+    modalAvatar.innerHTML = `
+        <img src="${influencer.image}" alt="${influencer.name}" class="avatar-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <div class="avatar-fallback" style="display: none;">${getInitials(influencer.name)}</div>
+    `;
     document.getElementById('modal-title').textContent = influencer.name;
     document.getElementById('modal-handle').textContent = influencer.handle;
     document.getElementById('modal-niche').textContent = influencer.niche;
